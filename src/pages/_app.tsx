@@ -1,26 +1,16 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { createTheme, ThemeProvider } from "@mui/material";
-import rtlPlugin from "stylis-plugin-rtl";
-import { CacheProvider } from "@emotion/react";
-import createCache from "@emotion/cache";
-// @ts-ignore
-import { prefixer } from "stylis";
-import { SessionProvider } from "next-auth/react";
-import { Provider } from "react-redux";
-import { wrapper } from "@/redux/store";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const theme = createTheme({
   palette: {
     primary: {
       main: "#000",
+      light: "#777",
     },
     secondary: {
-      main: "#EEE",
-    },
-    common: {
-      white: "#FFF",
-      black: "#000",
+      main: "#F9F000",
     },
   },
   typography: {
@@ -94,28 +84,14 @@ const theme = createTheme({
   direction: "ltr",
 });
 
-const cacheRtl = createCache({
-  key: "muirtl",
-  stylisPlugins: [prefixer, rtlPlugin],
-});
+const queryClient = new QueryClient();
 
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-  ...rest
-}: AppProps) {
-  const { store } = wrapper.useWrappedStore(rest);
-
+export default function App({ Component, pageProps }: AppProps) {
   return (
-    // Uncomment for RTL
-    // <CacheProvider value={cacheRtl}>
     <ThemeProvider theme={theme}>
-      <SessionProvider session={session}>
-        <Provider store={store}>
-          <Component {...pageProps} />
-        </Provider>
-      </SessionProvider>
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
     </ThemeProvider>
-    // </CacheProvider>
   );
 }

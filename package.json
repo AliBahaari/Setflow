@@ -1,33 +1,35 @@
 {
-  "name": "next-mui-auth-redux-rtk-query-codegen",
+  "name": "setflow",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "codegen": "cd src/redux/apis && npx @rtk-query/codegen-openapi Config.json"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.7",
     "@mui/material": "^5.13.4",
-    "@reduxjs/toolkit": "^1.9.5",
-    "@rtk-query/codegen-openapi": "^1.0.0",
+    "@tanstack/react-query": "^4.33.0",
+    "@tanstack/react-table": "^8.9.3",
     "@types/node": "20.2.6",
     "@types/react": "18.2.11",
     "@types/react-dom": "18.2.4",
+    "axios": "^1.5.0",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
     "next": "13.4.4",
-    "next-auth": "^4.22.1",
-    "next-redux-wrapper": "^8.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-redux": "^8.0.7",
+    "react-query": "^3.39.3",
     "stylis": "^4.2.0",
     "stylis-plugin-rtl": "^2.1.1",
     "typescript": "5.1.3"
+  },
+  "devDependencies": {
+    "@types/stylis": "^4.2.0"
   }
 }

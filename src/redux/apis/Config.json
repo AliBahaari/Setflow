@@ -1,8 +1,0 @@
-{
-  "schemaFile": "",
-  "apiFile": "./Empty.ts",
-  "apiImport": "emptyApi",
-  "outputFile": "./....ts",
-  "exportName": "...",
-  "hooks": true
-}
